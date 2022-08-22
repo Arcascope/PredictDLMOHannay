@@ -33,7 +33,9 @@ which implemements the equations and parameters as shown the in HCRSimPy
 
 
 ## Bonus
+* Make a dropdown to switch between the models (St.Hilaire / Hannay) so the user can choose which model they want to run
 * Once the model runs make a histogram of the DLMO values (where the values are the fractional hours [8:30PM = 20:30 = 20.50 hrs])
+
 
 
 
