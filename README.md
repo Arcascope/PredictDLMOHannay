@@ -5,12 +5,16 @@ their CSV files measuring subjects activity (called actigraphy) into predictions
 
 This repo will take the house the code for a clone of predict DLMO with either a drop down menu to choose the model used or just use the Hannay Circadian model. The original predict DLMO uses an older mathematical model (St.Hilaire model) to predict the DLMO timing. 
 
-Python code for the Hannay (Single Population Model) can be found in the repo [HCRSimPY](https://github.com/Arcascope/HCRSimPY) specifically the model can be found [here](https://github.com/Arcascope/HCRSimPY/blob/master/HCRSimPY/models/singlepop_model.py). Both of these models are differential equation models meaning that they define how the quantity of interest changes. The Hannay model has two variables
+Python code for the Hannay (Single Population Model) can be found in the repo [HCRSimPY](https://github.com/Arcascope/HCRSimPY) specifically the model can be found [here](https://github.com/Arcascope/HCRSimPY/blob/master/HCRSimPY/models/singlepop_model.py). Both of these models are differential equation models meaning that they define how the quantity of interest changes. The Hannay model has three variables:
 
-R: The amplitude 
-Psi: The phase (an angle in radians [0, 2\pi])
+* n: Light activation 
+* R: The amplitude 
+* Psi: The phase (an angle in radians [0, 2\pi])
 
-Within the model the DLMO is defined by be when the phase crosses [5\pi/12 or 1.3]. 
+Within the model the DLMO is defined by when the phase crosses [5\pi/12 or 1.3]. So once you solve the differential equation, and get the phase variable
+to find the DLMO times, you just need to find where the phase (Psi) crosses 5\pi/12. 
+
+A mathematical hint is you can do this by finding where the value d = sin(0.5*(psi - 5\pi/12.0)) is crosses through zero (changes sign). 
 
 ## Starting points
 
